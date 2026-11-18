@@ -1,49 +1,16 @@
-# Atlas: learning by mastery
+# Atlas
 
-A site of courses, each built as a map of small concepts: one on AI, from vectors to
-post-training, and one on Nix, from its language to flakes. Each
-concept opens with a short voiced explainer, drawn live beside the code that computes it, then
-generated problems until it is mastered. Mastering a concept unlocks the ones built on it, and
-mastered concepts come back as spaced reviews. A track aims at any concept and lays out
-everything it needs. Design in `docs/MASTERY.md`.
+Learn by mastery. Each course is a map of small concepts: a short voiced explainer, then
+practice problems until you have it, then spaced reviews so it sticks. Progress syncs between
+devices with an account code, no sign-up, and the whole site works offline.
 
-Progress is kept in the browser and syncs between devices through a short account code, with no
-sign-up. See `docs/SYNC.md`.
+**Courses:** Deep Learning (from linear algebra to transformers, language models and
+post-training) and Nix (the language, the store, packages and flakes).
 
-Atlas works offline: after the first visit a service worker keeps the app and every concept's
-code and problems (about 9 MB), each explainer's narration once it has played, and ahead of time the
-narration of the explainers that come next. The settings menu saves the sound of every explainer, or of one
-course, in one go, and removes it again.
+**Try it:** https://j2r87q39.hostthis.dev
 
-## Courses
+## Run locally
 
-- **Deep Learning** (167 concepts): from linear algebra and calculus through networks,
-  convnets, sequences and transformers to language models, post-training, scale, inference and
-  interpretability.
-- **Nix** (10 concepts): the language, the store, packages, and flakes.
+    npm install && npm run dev    # http://127.0.0.1:5340
 
-A course is a folder under `src/courses/` with a `course.ts` and one folder per concept;
-the site finds it by glob, so adding one needs no registration.
-
-## Run
-
-    npm install
-    npm run dev        # http://127.0.0.1:5340
-    npm run build      # typecheck + static build to dist/
-    npm test           # Vitest: the mastery engine, the sync records, and every problem generator
-
-`dist/` is a plain static site (hash routing, relative asset paths) and can be served from
-any static host that serves `sw.js` as JavaScript and answers range requests. Sync needs the host to also serve
-[hearthsync](https://github.com/Zamua/hearthsync)'s rooms API at `/api/rooms`; without it,
-progress stays on each device. The dev server serves one in memory.
-
-## Explainers
-
-Narration is synthesized offline by `tools/lecture/build.mjs`, with an ElevenLabs voice through
-OpenRouter's speech API or locally with [Kokoro](https://github.com/thewh1teagle/kokoro-onnx),
-and committed as each concept's `narration.m4a` plus its `timing.json`. See
-`docs/EXPLAINERS.md`.
-
-## License
-
-MIT, see [LICENSE](LICENSE).
+MIT licensed.
