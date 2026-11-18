@@ -215,6 +215,7 @@ const LECTURE_KEY = /^lectures\/\d$/;
 /** The model without its migration: enough for reading and editing a store. */
 export const MODEL: Model<Rec> = {
   prefix: 'progress.v2.',
+  // Fixed for good: every account code's room is derived with this salt, so changing it would orphan synced progress.
   salt: 'deep-learning-interactive/public/',
   qrPrefix: 'DLI',
   kind: (key) => (MASTERY_KEY.test(key) ? mastery : LECTURE_KEY.test(key) ? lectures : key === READING_KEY ? reading : key === LAST_KEY ? last : key === PREFS_KEY ? prefs : key === TRACKS_KEY ? tracks : null),

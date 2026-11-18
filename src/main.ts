@@ -51,7 +51,7 @@ const brand = h('a', { class: 'brand', href: routes.topics, 'aria-label': 'Atlas
 const LAST_COURSE = 'atlas.course';
 const lastCourse = (): Course => courseById(getItem(LAST_COURSE) ?? '') ?? FIRST;
 
-const REPO = 'https://github.com/Zamua/deep-learning-interactive';
+const REPO = 'https://github.com/Zamua/atlas';
 const repoLink = h('a', { class: 'icon-btn', href: REPO, target: '_blank', rel: 'noopener', 'aria-label': 'Source on GitHub', title: 'Source on GitHub', html: icon('github-logo') });
 
 const top = h('header', { class: 'topbar' }, menuBtn, brand, h('div', { class: 'topbar-spacer' }), repoLink, settingsButton());
