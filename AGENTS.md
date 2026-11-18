@@ -37,6 +37,12 @@ Where one disagrees with the rules here, these win: nothing moves when content l
 is not needed (never leave content hidden behind a removed animation), Phosphor icons, no em dashes, and
 `code-review:code-review` for review.
 
+## Hosting
+
+`dist/` is a plain static site (hash routing, relative asset paths). The host must serve `sw.js` as JavaScript and
+answer range requests (iOS Safari refuses narration without them). Sync also needs hearthsync's rooms API at
+`/api/rooms` on the same origin; without it progress stays on each device. The dev server serves one in memory.
+
 ## Layout
 
 - `src/main.ts`: the shell (top bar whose wordmark leads to the topics page, side menu of topics or of the open
