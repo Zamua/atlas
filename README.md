@@ -15,6 +15,16 @@ code and problems (about 9 MB), each explainer's narration once it has played, a
 narration of the explainers that come next. The settings menu saves the sound of every explainer, or of one
 course, in one go, and removes it again.
 
+## Courses
+
+- **Deep Learning** (167 concepts): from linear algebra and calculus through networks,
+  convnets, sequences and transformers to language models, post-training, scale, inference and
+  interpretability.
+- **Nix** (10 concepts): the language, the store, packages, and flakes.
+
+A course is a folder under `src/courses/` with a `course.ts` and one folder per concept;
+the site finds it by glob, so adding one needs no registration.
+
 ## Run
 
     npm install
